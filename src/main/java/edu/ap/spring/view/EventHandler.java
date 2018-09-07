@@ -9,5 +9,15 @@ import java.awt.event.ActionEvent;
 
 @Component
 public class EventHandler {
+    @Autowired
+    UI ui;
+
+    @Autowired
+    Eightball eightball;
+
+    public void generateEightballAnswer(ActionEvent event){
+        ui.getLblAnswer().setText(eightball.getRandomAnswer(ui.getTxtQuestion().getText()));
+        ui.getTxtQuestion().setText("");
+    }
 
 }
