@@ -17,8 +17,7 @@ public class MagicEightBallApplication {
 
 	@Bean
     public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
-		return (args) -> {
-		};
+		return (args) -> {ui.setUI();};
     }
 	
 	public static void main(String[] args) {

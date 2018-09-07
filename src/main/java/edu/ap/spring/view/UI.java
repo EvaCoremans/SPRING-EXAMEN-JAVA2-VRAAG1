@@ -76,14 +76,14 @@ public class UI implements InitializingBean {
 		//initialize all components
 		frame = new JFrame("Eightball");
 		panel = new JPanel();
-		txtQuestion = new JTextField();
+		txtQuestion = new JTextField(15);
 		btnGetAnswer = new JButton();
 		lblAnswer = new JLabel();
 
 		//set component properties
 		frame.setLayout(new GridLayout(0, 2));
 		frame.setContentPane(panel);
-		frame.pack();
+		frame.setSize(600, 400);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
@@ -93,7 +93,8 @@ public class UI implements InitializingBean {
 		panel.add(lblAnswer);
 
 		btnGetAnswer.setText("Generate Answer");
-		//btnGetAnswer.addActionListener();
+		btnGetAnswer.addActionListener(handler::generateEightballAnswer);
+
 
 	}
 
