@@ -22,6 +22,81 @@ public class UI implements InitializingBean {
 	public UI() {
 	}
 
+	//region Access Methods
+	public EventHandler getHandler() {
+		return handler;
+	}
+
+	public void setHandler(EventHandler handler) {
+		this.handler = handler;
+	}
+
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+
+	public JPanel getPanel() {
+		return panel;
+	}
+
+	public void setPanel(JPanel panel) {
+		this.panel = panel;
+	}
+
+	public JTextField getTxtQuestion() {
+		return txtQuestion;
+	}
+
+	public void setTxtQuestion(JTextField txtQuestion) {
+		this.txtQuestion = txtQuestion;
+	}
+
+	public JButton getBtnGetAnswer() {
+		return btnGetAnswer;
+	}
+
+	public void setBtnGetAnswer(JButton btnGetAnswer) {
+		this.btnGetAnswer = btnGetAnswer;
+	}
+
+	public JLabel getLblAnswer() {
+		return lblAnswer;
+	}
+
+	public void setLblAnswer(JLabel lblAnswer) {
+		this.lblAnswer = lblAnswer;
+	}
+	//endregion
+
+	public void setUI(){
+		//initialize all components
+		frame = new JFrame("Eightball");
+		panel = new JPanel();
+		txtQuestion = new JTextField();
+		btnGetAnswer = new JButton();
+		lblAnswer = new JLabel();
+
+		//set component properties
+		frame.setLayout(new GridLayout(0, 2));
+		frame.setContentPane(panel);
+		frame.pack();
+		frame.setLocationRelativeTo(null);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+
+		panel.add(txtQuestion);
+		panel.add(btnGetAnswer);
+		panel.add(lblAnswer);
+
+		btnGetAnswer.setText("Generate Answer");
+		//btnGetAnswer.addActionListener();
+
+	}
+
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		System.setProperty("java.awt.headless", "false");
