@@ -28,11 +28,31 @@ public class Eightball {
             "Don't count on it"};
 
     //cast Array to List for iteration
-    private ArrayList<String> new_answers = new ArrayList<String>(Arrays.asList(answers));
+    private ArrayList<String> answersList = new ArrayList<String>(Arrays.asList(answers));
 
 
     public String getRandomAnswer(String question){
-        
+        Question q = repository.findByQuestion(question);
+
+        if(q != null){
+            return q.getAnswer();
+        }
+        //randomize response
+        else if(answersList.size()>0){
+            q = new Question();
+            int rnd = (int) (Math.random()*answersList.size());
+
+            q.setQuestion(question);
+            q.setAnswer(answersList.get(rnd));
+            repository.save(q);
+
+            answersList.remove(rnd);
+
+            return q.getAnswer();
+        }
+        else{
+
+        }
     }
 
 
