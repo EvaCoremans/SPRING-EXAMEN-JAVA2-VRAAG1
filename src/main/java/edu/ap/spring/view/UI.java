@@ -11,7 +11,16 @@ import java.awt.*;
 public class UI implements InitializingBean {
 
 	@Autowired
+	private EventHandler handler;
 
+	private JFrame frame;
+	private JPanel panel;
+	private JTextField txtQuestion;
+	private JButton btnGetAnswer;
+	private JLabel lblAnswer;
+
+	public UI() {
+	}
 
 	@Override
 	public void afterPropertiesSet() throws Exception {

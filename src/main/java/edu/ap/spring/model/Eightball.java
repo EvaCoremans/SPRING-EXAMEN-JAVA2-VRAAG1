@@ -51,11 +51,10 @@ public class Eightball {
             return q.getAnswer();
         }
         else{
-
+            answersList = new ArrayList<String>(Arrays.asList(answers));
+            return getRandomAnswer(question);
         }
     }
-
-
 
     //region Access Methods
     public QuestionRepository getRepository() {
