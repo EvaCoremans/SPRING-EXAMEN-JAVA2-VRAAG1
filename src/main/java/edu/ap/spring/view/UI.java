@@ -18,6 +18,7 @@ public class UI implements InitializingBean {
 	private JTextField txtQuestion;
 	private JButton btnGetAnswer;
 	private JLabel lblAnswer;
+	private JLabel lblQuestion;
 
 	public UI() {
 	}
@@ -70,6 +71,14 @@ public class UI implements InitializingBean {
 	public void setLblAnswer(JLabel lblAnswer) {
 		this.lblAnswer = lblAnswer;
 	}
+
+	public JLabel getLblQuestion() {
+		return lblQuestion;
+	}
+
+	public void setLblQuestion(JLabel lblQuestion) {
+		this.lblQuestion = lblQuestion;
+	}
 	//endregion
 
 	public void setUI(){
@@ -79,6 +88,7 @@ public class UI implements InitializingBean {
 		txtQuestion = new JTextField(15);
 		btnGetAnswer = new JButton();
 		lblAnswer = new JLabel();
+		lblQuestion = new JLabel();
 
 		//set component properties
 		frame.setLayout(new GridLayout(0, 2));
@@ -90,12 +100,11 @@ public class UI implements InitializingBean {
 
 		panel.add(txtQuestion);
 		panel.add(btnGetAnswer);
+		panel.add(lblQuestion);
 		panel.add(lblAnswer);
 
 		btnGetAnswer.setText("Generate Answer");
 		btnGetAnswer.addActionListener(handler::generateEightballAnswer);
-
-
 	}
 
 	@Override

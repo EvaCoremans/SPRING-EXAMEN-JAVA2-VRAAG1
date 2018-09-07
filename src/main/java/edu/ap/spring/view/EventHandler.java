@@ -17,6 +17,7 @@ public class EventHandler {
 
     public void generateEightballAnswer(ActionEvent event){
         ui.getLblAnswer().setText(eightball.getRandomAnswer(ui.getTxtQuestion().getText()));
+        ui.getLblQuestion().setText(ui.getTxtQuestion().getText());
         ui.getTxtQuestion().setText("");
     }
 
